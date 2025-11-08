@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <h1>Tervetuloa LEMP-sivulle! GIT versio</h1>
+    <h1>Tervetuloa LEMP-sivulle! GIT versio 2</h1>
     <p>Tämä sivu pyörii Nginx + PHP + MariaDB -ympäristössä.</p>
     <p>Palvelimen kellonaika SQL-tietokannasta:</p>
 
