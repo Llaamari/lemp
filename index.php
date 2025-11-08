@@ -8,7 +8,6 @@
     
     <body>
         <h1>Tervetuloa LEMP-sivulle!</h1>
-        <p>Palvelimen kellonaika SQL-tietokannasta:</p>
         
         <section class="clock-container">
             <h2>Palvelimen kellonaika SQL-tietokannasta</h2>
