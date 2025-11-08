@@ -1,4 +1,4 @@
-// Alusta aika PHP:n tulosteesta
+// Alusta aika tulosteesta
 const clockElem = document.getElementById("clock");
 const startTime = new Date(clockElem.textContent.trim());
 const pageLoadTime = Date.now();
@@ -7,7 +7,7 @@ const pageLoadTime = Date.now();
 function updateClock() {
     const now = new Date(startTime.getTime() + (Date.now() - pageLoadTime));
 
-    // Muodosta suomalainen aikamuoto: 8.11.2025 klo 14:23:45
+    // Muodosta aikamuoto DD.MM.YYYY klo HH:MM:SS
     const dd = String(now.getDate()).padStart(2, '0');
     const mm = String(now.getMonth() + 1).padStart(2, '0');
     const yyyy = now.getFullYear();
