@@ -5,7 +5,7 @@
     <title>LEMP Stack Test</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: sans-serif;
             background-color: #eef;
             text-align: center;
             padding-top: 50px;
@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <h1>Tervetuloa LEMP-sivulle! GIT versio 2</h1>
+    <h1>Tervetuloa LEMP-sivulle!</h1>
     <p>Tämä sivu pyörii Nginx + PHP + MariaDB -ympäristössä.</p>
     <p>Palvelimen kellonaika SQL-tietokannasta:</p>
 
