@@ -1,0 +1,79 @@
+# ---------------------------
+# PYTHON / STREAMLIT PROJECT
+# ---------------------------
+
+# virtual environment
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit cache & logs
+.streamlit/
+**/.streamlit/
+logs/
+*.log
+
+# Jupyter notebook checkpoints (if used)
+.ipynb_checkpoints/
+
+# ---------------------------
+# OS / EDITOR FILES
+# ---------------------------
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux temporary files
+*.swp
+*.swo
+
+# Visual Studio Code
+.vscode/
+
+# Jetbrains (PyCharm, PhpStorm)
+.idea/
+
+# ---------------------------
+# PHP / WEB PROJECT
+# ---------------------------
+
+# Composer vendor folder (if used)
+vendor/
+
+# node_modules (if any JS tooling)
+node_modules/
+
+# PHP cache
+*.cache
+*.tmp
+
+# ---------------------------
+# SERVER / SECURITY
+# ---------------------------
+
+# Don’t commit environment-specific configs
+*.env
+.env.*
+config.php
+db_config.php
+
+# Nginx / Apache configs (avoid pushing server credentials)
+*.conf
+nginx/*
+apache2/*
+
+# ---------------------------
+# PROJECT STRUCTURE SAFETY
+# ---------------------------
+
+# Ignore system-level www folders not part of repo
+html/
+www/
