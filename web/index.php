@@ -32,7 +32,7 @@
         
         <script src="script.js"></script>
         <p>
-            <a href="/data-analysis">Avaa data-analyysisovellus</a>
+            <a class="data-btn" href="/data-analysis">Avaa data-analyysisovellus</a>
         </p>
     </body>
 </html>
