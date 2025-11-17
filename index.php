@@ -7,7 +7,7 @@
     </head>
     
     <body>
-        <h1>Tervetuloa LEMP-sivulle!</h1>
+        <h1>Tervetuloa LEMP-sivulle! Toimiiko</h1>
         
         <section class="clock-container">
             <h2>Palvelimen kellonaika SQL-tietokannasta</h2>
