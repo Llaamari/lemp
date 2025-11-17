@@ -31,5 +31,8 @@
         </section>
         
         <script src="script.js"></script>
+        <p>
+            <a href="/data-analysis">Avaa data-analyysisovellus</a>
+        </p>
     </body>
 </html>
