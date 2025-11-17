@@ -174,5 +174,5 @@ conn = pymysql.connect(
 ![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 # Live URLs
-- [Homepage](http://86.50.21.122/)
-- [Streamlit App](http://86.50.21.122/data-analysis/)
+- [Homepage](http://86.50.22.232/)
+- [Streamlit App](http://86.50.22.232/data-analysis/)
