@@ -7,9 +7,9 @@ st.title("Real Data from MySQL (Data Analysis)")
 # Connect to MySQL
 conn = pymysql.connect(
     host="localhost",
-    user="root
+    user="root",
     password="",
-    database="testdb
+    database="testdb"
 )
 
 # Read real data
