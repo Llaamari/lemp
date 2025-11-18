@@ -28,12 +28,12 @@ df["Timestamp"] = pd.to_datetime(df["Timestamp"])
 # Create formatted timestamp for display table
 df["Timestamp_formatted"] = df["Timestamp"].dt.strftime("%d.%m.%Y %H:%M:%S")
 
-# Display formatted table without index column (0,1,2...)
+# Display formatted table
 st.subheader("Temperature Data (Last Measurements)")
 st.dataframe(
-    df[["ID", "Timestamp_formatted", "Temperature"]]
-      .rename(columns={"Timestamp_formatted": "Timestamp"})
-      .reset_index(drop=True)
+    df[["ID", "Timestamp_formatted", "Temperature"]].rename(
+        columns={"Timestamp_formatted": "Timestamp"}
+    )
 )
 
 # Trend chart
