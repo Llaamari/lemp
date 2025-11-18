@@ -22,8 +22,10 @@ df = df.rename(columns={
     "temperature": "Temperature"
 })
 
-# Convert timestamp to Finnish format  dd.mm.yyyy HH:MM:SS
+# Convert timestamp to datetime
 df["Timestamp"] = pd.to_datetime(df["Timestamp"])
+
+# Create formatted timestamp for display table
 df["Timestamp_formatted"] = df["Timestamp"].dt.strftime("%d.%m.%Y %H:%M:%S")
 
 # Display formatted table
@@ -34,11 +36,6 @@ st.dataframe(
     )
 )
 
-# Trend chart (24h time format)
-df_trend = df.copy()
-df_trend["Timestamp_24h"] = df_trend["Timestamp"].dt.strftime("%H:%M")
-
+# Trend chart
 st.subheader("Temperature Trend")
-st.line_chart(
-    df_trend.set_index("Timestamp")["Temperature"]
-)
+st.line_chart(df.set_index("Timestamp")["Temperature"])
