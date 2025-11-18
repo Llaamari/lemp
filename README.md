@@ -12,7 +12,7 @@ The project includes:
 - Real-time clock fetched from the MariaDB SQL database  
 - A Streamlit data-analysis application running as a system service  
 - Nginx reverse proxy routing the Streamlit app to:  
-  **http:/<server-ip>/data-analysis**  
+  **http://...<server-ip>/data-analysis**  
 - A link to the Streamlit app on the homepage  
 - GitHub used for full version control
 
