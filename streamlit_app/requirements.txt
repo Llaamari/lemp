@@ -1,8 +1,6 @@
-Recommended for application
 streamlit>=1.30
 pymysql>=1.1.0
 pandas>=2.0
 
-Installing packages on venv
 source venv/bin/activate
 pip install -r requirements.txt
