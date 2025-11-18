@@ -15,6 +15,9 @@ conn = pymysql.connect(
 # Read real data
 df = pd.read_sql("SELECT * FROM temperature_data ORDER BY timestamp DESC", conn)
 
+# Convert timestamp to proper datetime
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+
 # Rename columns
 df = df.rename(columns={
     "id": "ID",
@@ -22,11 +25,9 @@ df = df.rename(columns={
     "temperature": "Temperature"
 })
 
-# Convert timestamp to format dd.mm.yyyy HH:MM:SS
-df["Timestamp"] = pd.to_datetime(df["Timestamp"])
+# Display table with formatted timestamp
 df["Timestamp_formatted"] = df["Timestamp"].dt.strftime("%d.%m.%Y %H:%M:%S")
 
-# Display formatted table
 st.subheader("Temperature Data (Last Measurements)")
 st.dataframe(
     df[["ID", "Timestamp_formatted", "Temperature"]].rename(
@@ -34,11 +35,15 @@ st.dataframe(
     )
 )
 
-# Trend chart (24h time format)
-df_trend = df.copy()
-df_trend["Timestamp_24h"] = df_trend["Timestamp"].dt.strftime("%H:%M")
+# --- FIX FOR 24H AXIS IN TREND CHART ---
+
+# Create a copy for charting
+df_chart = df.copy()
+
+# Ensure Timestamp is datetime AND in 24h format
+df_chart["Timestamp"] = pd.to_datetime(df_chart["Timestamp"].dt.strftime("%Y-%m-%d %H:%M:%S"))
 
 st.subheader("Temperature Trend")
 st.line_chart(
-    df_trend.set_index("Timestamp")["Temperature"]
+    df_chart.set_index("Timestamp")["Temperature"]
 )
