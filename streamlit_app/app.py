@@ -26,9 +26,6 @@ df = df.rename(columns={
 df["Timestamp"] = pd.to_datetime(df["Timestamp"])
 df["Timestamp_formatted"] = df["Timestamp"].dt.strftime("%d.%m.%Y %H:%M:%S")
 
-# Convert temperature to Celsius
-# df["Temperature"] = (df["Temperature"] - 32) * 5/9
-
 # Display formatted table
 st.subheader("Temperature Data (Last Measurements)")
 st.dataframe(
