@@ -1,9 +1,10 @@
 # Cron + API + MySQL + Streamlit + LEMP (cPouta)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Nginx](https://img.shields.io/badge/Nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3670A0.svg?style=for-the-badge&logo=python&logoColor=yellow)
+![PHP](https://img.shields.io/badge/PHP-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
 
 This project extends the previous LEMP + Streamlit setup by adding:
 
@@ -106,7 +107,8 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
-Activate:
+Activate:<br>
+![Bash Script](https://img.shields.io/badge/Bash_Script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable streamlit
@@ -117,7 +119,7 @@ Test locally:
 http://<server-ip>:8501
 ```
 # Automated Data Fetching (Cron)
-The cron job runs every 15 minutes:
+The cron job runs every 15 minutes:<br>
 ```ruby
 */15 * * * * /bin/bash /home/ubuntu/cron_assignment/fetch_weather.sh
 ```
@@ -135,7 +137,8 @@ Weather API
 Currency API
 - Source: Frankfurter API (no key required)
 # Nginx Reverse Proxy
-`/etc/nginx/sites-available/default` includes:
+`/etc/nginx/sites-available/default` includes:<br>
+![Nginx](https://img.shields.io/badge/Nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 ```nginx
 location /data-analysis/ {
     proxy_pass http://localhost:8501/;
@@ -145,13 +148,15 @@ location /data-analysis/ {
     proxy_set_header X-Forwarded-Proto $scheme;
 }
 ```
-Reload:
+Reload:<br>
+![Bash Script](https://img.shields.io/badge/Bash_Script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ```bash
 sudo nginx -t
 sudo systemctl reload nginx
 ```
 # MySQL Databases
-Weather Data Table (`weather_db`)
+Weather Data Table (`weather_db`)<br>
+![MySQL](https://img.shields.io/badge/SQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ```sql
 CREATE TABLE IF NOT EXISTS weather_data (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -161,7 +166,8 @@ CREATE TABLE IF NOT EXISTS weather_data (
   timestamp DATETIME
 );
 ```
-Currency Table (`finance_db`)
+Currency Table (`finance_db`)<br>
+![MySQL](https://img.shields.io/badge/SQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ```sql
 CREATE TABLE IF NOT EXISTS exchange_rates (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -182,6 +188,11 @@ CREATE TABLE IF NOT EXISTS exchange_rates (
 | **cron**      | Automated 15min API data pulling |
 | **Systemd**   | Keeps Streamlit alive 24/7       |
 | **GitHub**    | Version control                  |
+
+![CSS](https://img.shields.io/badge/CSS-%23663399.svg?style=for-the-badge&logo=css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 # Live URLs
 - [Homepage](http://86.50.22.232/)
