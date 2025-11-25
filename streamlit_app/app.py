@@ -23,8 +23,10 @@ weather_tab, fx_tab, temp_tab = st.tabs(["🌦 Weather (Oulu)", "💱 Exchange R
 # ------------------------------------------------------------
 with weather_tab:
 
-    st.header("Weather Data (Oulu)")
+    st.autorefresh(interval=60_000, key="weather_refresh")
 
+    st.header("Weather Data (Oulu)")
+    
     conn = pymysql.connect(
         host="localhost",
         user="root",
@@ -56,6 +58,8 @@ with weather_tab:
 # ============================================================
 
 with fx_tab:
+
+    st.autorefresh(interval=60_000, key="fx_refresh")
 
     st.header("Exchange Rates (EUR Base)")
 
