@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <meta charset="UTF-8">
+        <title>MQTT Chat</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="chat-container">
+            <h1>MQTT Chat</h1>
+            <p>
+                <span id="status"></span>
+                <span id="status-text">Ei yhteyttä</span>
+            </p>
+            
+            <div id="messages"></div>
+            <div class="input-row">
+                <input type="text" id="nickname" placeholder="Nimimerkki">
+                <input type="text" id="message" placeholder="Kirjoita viesti...">
+                <button id="send-btn">Lähetä</button>
+            </div>
+            
+            <small>Viimeiset 10 viestiä ladataan tietokannasta, kun sivu avataan.</small>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
