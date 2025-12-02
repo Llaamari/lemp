@@ -67,7 +67,8 @@ RestartSec=5
 [Install]
 WantedBy=multi-user.target
 ```
-Activation:
+Activation:<br>
+![Bash Script](https://img.shields.io/badge/Bash_Script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable mqtt-api
@@ -75,7 +76,8 @@ sudo systemctl start mqtt-api
 sudo systemctl status mqtt-api
 ```
 ### Nginx Reverse Proxy
-Routes configured in `/etc/nginx/sites-available/lemp`:
+Routes configured in `/etc/nginx/sites-available/lemp`:<br>
+![Nginx](https://img.shields.io/badge/Nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 ```nginx
 location /chat {
     alias /var/www/lemp/chat;
@@ -94,13 +96,15 @@ location /api {
     proxy_http_version 1.1;
 }
 ```
-Reload Nginx:
+Reload Nginx:<br>
+![Bash Script](https://img.shields.io/badge/Bash_Script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ```bash
 sudo nginx -t
 sudo systemctl reload nginx
 ```
 ## Installation & Setup
 ### Create Database + User
+![MySQL](https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ```sql
 CREATE DATABASE IF NOT EXISTS mqtt_chat
   CHARACTER SET utf8mb4
@@ -119,12 +123,14 @@ FLUSH PRIVILEGES;
 ### Allow Flask API port access
 API runs on: 5000 (bound to 0.0.0.0 so Nginx can access it)
 ### Start Flask API
+![Bash Script](https://img.shields.io/badge/Bash_Script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ```bash
 cd /home/ubuntu/mqtt-chat
 source venv/bin/activate
 python3 api.py &
 ```
 ### Test API locally
+![Bash Script](https://img.shields.io/badge/Bash_Script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ```bash
 curl http://127.0.0.1:5000/api/messages?limit=10
 ```
@@ -138,7 +144,8 @@ sudo systemctl status mqtt-logger
 ```
 ---
 ## Testing the MQTT broker
-Check WebSocket listener:
+Check WebSocket listener:<br>
+![Bash Script](https://img.shields.io/badge/Bash_Script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ```bash
 mosquitto_sub -h localhost -p 1883 -t "chat/messages"
 
