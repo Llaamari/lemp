@@ -16,18 +16,19 @@ const brokerUrl = (location.protocol === 'https:' ? 'wss://' : 'ws://')
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
     
-// Hae viimeiset 10 viestiä Flask API:sta
+// Hae viimeiset 10 viestiä Flask API:sta ja näytä myös aikaleimat
 fetch('/api/messages?limit=10')
-.then(r => r.json())
-.then(rows => {
+  .then(r => r.json())
+  .then(rows => {
     const box = document.getElementById('messages');
-    box.innerHTML = ""; // nollaa ennen kuin lisätään historia
-    rows.forEach(row => {
-        box.innerHTML += `<div class="msg"><span class="nick">${row.nickname}:</span> ${row.message}</div>`;
-    });
-})
+    box.innerHTML = ""; // nollaa laatikko ennen historian lisäämistä
 
-.catch(err => console.error("Viestihistorian lataus tietokannasta epäonnistui", err));
+    rows.forEach(row => {
+      addMessage(row.nickname, row.message, row.created_at);
+    });
+  })
+  .catch(err => console.error("Historian lataus epäonnistui", err));
+
 // Yhdistä MQTT
 const client = mqtt.connect(brokerUrl, { clientId, clean: true });
 

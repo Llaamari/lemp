@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-
 import pymysql
 from flask import Flask, jsonify, request
+from datetime import timedelta
 
 app = Flask(__name__)
 
@@ -20,33 +20,22 @@ def get_messages():
 
     cursor = conn.cursor()
     cursor.execute(
-        """
-        SELECT
-            id AS ID,
-            nickname,
-            message,
-            client_id,
-            created_at
-        FROM messages
-        ORDER BY created_at DESC
-        LIMIT %s
-        """,
-        (limit,)
+        "SELECT id AS ID, nickname, message, client_id, created_at "
+        "FROM messages "
+        "ORDER BY created_at DESC "
+        "LIMIT %s", (limit,)
     )
 
     rows = cursor.fetchall()
-
-    cursor.close()
     conn.close()
 
-    # Formatoi timestampit kaikkiin viesteihin
+    # Aikaformaatti
     for r in rows:
-        if r.get("created_at"):
-            r["created_at"] = r["created_at"].strftime("%d.%m.%Y %H:%M:%S")
+        if "created_at" in r and r["created_at"]:
+            r["created_at"] = (r["created_at"] + timedelta(hours=2)).strftime("%d.%m.%Y %H:%M:%S")
 
-    # Käännä vanhimmat ensin → uusin alas
-    return jsonify(list(reversed(rows)))
+    return jsonify(rows[::-1])
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000)  # jää päälle ja kuuntelemaan

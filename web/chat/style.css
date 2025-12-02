@@ -72,3 +72,8 @@ button:hover {
 small {
     color: #666;
 }
+
+.msg time {
+    font-size: 0.75em;
+    color: #555;
+}
